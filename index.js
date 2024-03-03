@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.get('/email', (req, res) => {
-
+console.log("hi")
 });
 
 app.post ('/email', (req, res) => {
