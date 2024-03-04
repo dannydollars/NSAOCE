@@ -1,6 +1,18 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const multer = require('multer');
 
+console.log(process.env.USER);
+
+const transporter = nodemailer.createTransport({
+    host: 'mail.pathfinder-group.com',
+    port: 465,
+    secure: true,
+    auth: {
+        user: process.env.USER,
+        pass: process.env.PASS
+    }
+});
 
 const app = express();
 
@@ -8,15 +20,19 @@ app.get('/email', (req, res) => {
 console.log("hi")
 });
 
-app.post ('/email', (req, res) => {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.USER,
-            pass: process.env.PASS
-        }
-    });
-});
+const upload = multer();
+
+app.post('/send-email', upload.none(), (req, res) => {
+   res.send('Form data received!');
+    // transporter.sendMail({
+    //     from: process.env.USER,
+    //     to: 'danielcmatheson@gmail.com',
+    //     subject: req.body.Subject,
+    //     text: req.body.Body
+    // });
+  })
+
+
 
 
 app.listen(process.env.PORT || 3000, () => {
