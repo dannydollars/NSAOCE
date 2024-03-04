@@ -1,8 +1,7 @@
+const dotenv = require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
-
-console.log(process.env.USER);
 
 const transporter = nodemailer.createTransport({
     host: 'mail.pathfinder-group.com',
@@ -24,13 +23,15 @@ const upload = multer();
 
 app.post('/send-email', upload.none(), (req, res) => {
    res.send('Form data received!');
-    // transporter.sendMail({
-    //     from: process.env.USER,
-    //     to: 'danielcmatheson@gmail.com',
-    //     subject: req.body.Subject,
-    //     text: req.body.Body
-    // });
-  })
+
+   transporter.sendMail({
+        from: process.env.USER,
+    to:'danielcmatheson@gmail.com',
+    subject: req.body.Subject,
+    text: req.body.Body,
+    replyTo:req.body.from
+    })
+})
 
 
 
