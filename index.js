@@ -27,9 +27,9 @@ app.post('/send-email', upload.none(), (req, res) => {
    transporter.sendMail({
         from: process.env.USER,
     to:'dmatheson@pathfinder-group.com',
-    subject: req.body.Subject,
-    text: req.body.Body,
-    replyTo:req.body.from
+    subject: "contact form submission",
+    text: req.body.Message,
+    replyTo:req.body.email
     })
 })
 
