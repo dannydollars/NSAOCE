@@ -36,7 +36,7 @@ app.post('/send-email', upload.none(), (req, res) => {
 console.log(req.body)
    transporter.sendMail({
         from: process.env.USER,
-    to:'danielcmatheson@gmail.com',
+    to:'info@novascotiaosteopaths.ca',
     subject: "contact form submission from "+req.body.name,
     text: req.body.message,
     replyTo:req.body.email
