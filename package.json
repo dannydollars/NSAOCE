@@ -2,8 +2,7 @@
   "name": "nsaoce",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dannydollars/NSAOCE.git"

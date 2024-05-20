@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/07e7614a-ff82-4151-96dd-275d7b911494/resourceGroups/NSAOapps/providers/Microsoft.Web/sites/nsaoceapp",
+    "appService.deploySubpath": "."
+}
